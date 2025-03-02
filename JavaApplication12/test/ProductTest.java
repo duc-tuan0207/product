@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
 
+import javaapplication12.product;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,29 +16,24 @@ import static org.junit.jupiter.api.Assertions.*;
  * @author ductuan
  */
 public class ProductTest {
-    
-    public ProductTest() {
-    }
-    
-    @BeforeAll
-    public static void setUpClass() {
-    }
-    
-    @AfterAll
-    public static void tearDownClass() {
-    }
-    
-    @BeforeEach
-    public void setUp() {
-    }
-    
-    @AfterEach
-    public void tearDown() {
+
+    @Test
+    public void testGetPrice() {
+        product product = new product("P001", "Laptop", 1000);
+        assertEquals(1000, product.getPrice(), 0.01);
     }
 
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
+    @Test
+    public void testSetPrice() {
+        product product = new product("P001", "Laptop", 1000);
+        product.setPrice(1200);
+        assertEquals(1200, product.getPrice(), 0.01);
+    }
+
+    @Test
+    public void testApplyDiscount() {
+        product product = new product("P001", "Laptop", 1000);
+        product.applyDiscount(10);
+        assertEquals(900, product.getPrice(), 0.01);
+    }
 }
